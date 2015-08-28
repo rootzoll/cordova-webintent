@@ -11,6 +11,7 @@ import org.json.JSONObject;
 import android.content.Intent;
 import android.net.Uri;
 import android.text.Html;
+import android.widget.Toast;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
