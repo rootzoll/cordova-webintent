@@ -1,12 +1,18 @@
 # WebIntent Android Plugin for Cordova 3.X #
 By Boris Smus
 
-Phonegap/Cordova 2.X version available at the [WebIntent](https://github.com/phonegap/phonegap-plugins/tree/master/Android/WebIntent) plugin site.
+## FORKED TO FIX ONE THING ##
 
+forked from https://github.com/Initsogar/cordova-webintent.git to fix one problem I had:
+
+Android is putting the data of a Share-WebIntent into the EXTRA part of the intent. When my cordova app was running still in the background I used the onNewIntent callback to catch the WebIntent, but the original plugin was not giving back the EXTRA part. So I edited the Android code to preserve the Intent onNewIntent so that with a call of getExtra within the callback its now possible to get access to the extra.
+
+This fix is experimental and I dont plan to maintain this fork. Just wanna have this public if anybody else needs this fix. If its working stable for you maybe ask for a merge of my solution into Initsogar/cordova-webintent 
+ 
 ## Adding the Plugin to your project ##
 1. To install the plugin, use the Cordova CLI and enter the following:
 
-`cordova plugin add https://github.com/Initsogar/cordova-webintent.git`
+`cordova plugin add https://github.com/rootzoll/cordova-webintent.git`
 
 2. Confirm that the following is in your `res/xml/config.xml` file:
 
@@ -83,6 +89,8 @@ Gets called when onNewIntent is called for the parent activity. Used in only cer
             // url is the url that was passed to onNewIntent
         }
     });
+
+If you need the EXTRA data from the intent ... use getExtra method within callback. 
 
 ### sendBroadcast ###
 Sends a custom intent passing optional extras
