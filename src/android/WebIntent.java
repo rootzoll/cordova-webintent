@@ -167,8 +167,19 @@ public class WebIntent extends CordovaPlugin {
     public void onNewIntent(Intent intent) {
     	 
         if (this.onNewIntentCallbackContext != null) {
-        	PluginResult result = new PluginResult(PluginResult.Status.OK, intent.getDataString());
+        	
+                // prepare result 
+                PluginResult result = new PluginResult(PluginResult.Status.OK, intent.getDataString());
         	result.setKeepCallback(true);
+
+		// store the new intent on activity so that JS can get Extra later on thru getExtra
+		try {
+		    ((CordovaActivity)this.cordova.getActivity()).setIntent(intent);
+		} catch (Exception e) {
+		    e.printStackTrace();
+                    Toast.makeText(((CordovaActivity)this.cordova.getActivity()).getApplicationContext(), "failed on preserving webintent on activity" , Toast.LENGTH_SHORT).show();
+		}
+
             this.onNewIntentCallbackContext.sendPluginResult(result);
         }
     }
