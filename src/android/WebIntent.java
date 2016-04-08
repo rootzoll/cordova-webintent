@@ -1,6 +1,5 @@
 package com.borismus.webintent;
 
-import java.util.String;
 import java.util.HashMap;
 import java.util.Map;
 
