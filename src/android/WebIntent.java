@@ -1,5 +1,6 @@
 package com.borismus.webintent;
 
+import java.util.String;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -89,8 +90,9 @@ public class WebIntent extends CordovaPlugin {
                 Intent i = ((CordovaActivity)this.cordova.getActivity()).getIntent();
                 String extraName = args.getString(0);
                 if (i.hasExtra(extraName)) {
-                    //return new PluginResult(PluginResult.Status.OK, i.getStringExtra(extraName));
-                    callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK, i.getStringExtra(extraName)));
+                    String r = i.getStringExtra(extraName);
+                    if (null === r) r = ((Uri) i.getParcelableExtra(extraName)).toString();
+                    callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK, r));
                     return true;
                 } else {
                     //return new PluginResult(PluginResult.Status.ERROR);
