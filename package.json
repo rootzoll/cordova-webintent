@@ -1,0 +1,23 @@
+{
+    "name": "cordova-webintent-rootzoll",
+    "version": "1.0.0",
+    "description": "Web intents for Cordova",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/rootzoll/cordova-webintent.git"
+    },
+    "author": "borismus",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/rootzoll/cordova-webintent/issues"
+    },
+    "homepage": "https://github.com/rootzoll/cordova-webintent#readme",
+    "keywords": [
+        "ecosystem:cordova",
+        "cordova-android",
+        "cordova-ios"
+    ]
+}
