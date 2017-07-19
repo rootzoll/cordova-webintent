@@ -1,5 +1,5 @@
 {
-    "name": "cordova-webintent-rootzoll",
+    "name": "com.borismus.webintent",
     "version": "1.0.0",
     "description": "Web intents for Cordova",
     "scripts": {
